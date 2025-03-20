@@ -243,13 +243,15 @@ input:checked + .slider:before {
     background-color: var(--secondary-color);
     border-radius: 10px;
     padding: 20px;
+    height: 350px; /* Decreased height */
 }
 
 .history-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
     gap: 20px;
     margin-top: 20px;
+    height: 500px; /* Decreased height */
 }
 
 .history-card {
@@ -257,6 +259,7 @@ input:checked + .slider:before {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    height: 255px;
 }
 
 .energy-value {
@@ -288,6 +291,7 @@ input:checked + .slider:before {
     background-color: var(--primary-color);
     border-radius: 10px;
     padding: 20px;
+    height: 90px;
     margin-top: 20px;
 }
 
