@@ -1,1 +1,107 @@
-project AirVis
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirVis AC Control System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">AirVis</div>
+            <div class="mode-switch">
+                <label class="switch">
+                    <input type="checkbox" id="modeToggle">
+                    <span class="slider"></span>
+                </label>
+                <span id="modeText">Manual Mode</span>
+            </div>
+        </nav>
+
+        <div id="autoMode" class="mode-container hidden">
+            <div class="status-card">
+                <div class="status-icon online"></div>
+                <h2>AirVis is Online</h2>
+                <p>Currently monitoring and optimizing AC usage</p>
+                <div class="occupancy-info">
+                    <h3>Room Occupancy</h3>
+                    <div class="occupancy-level">High</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="manualMode" class="mode-container">
+            <div class="ac-list" id="acSelection">
+                <h2>Select AC Unit</h2>
+                <div class="ac-grid">
+                    <div class="ac-card" data-ac="1">AC Unit 1</div>
+                    <div class="ac-card" data-ac="2">AC Unit 2</div>
+                    <div class="ac-card" data-ac="3">AC Unit 3</div>
+                </div>
+            </div>
+
+            <div class="control-panel hidden" id="controlPanel">
+                <h2>AC Control Panel</h2>
+                <div class="control-grid">
+                    <div class="control-card">
+                        <h3>Temperature</h3>
+                        <div class="temp-control">
+                            <button class="temp-btn" id="tempDown">-</button>
+                            <span id="tempDisplay">24°C</span>
+                            <button class="temp-btn" id="tempUp">+</button>
+                        </div>
+                    </div>
+
+                    <div class="control-card">
+                        <h3>Fan Speed</h3>
+                        <div class="speed-buttons">
+                            <button class="speed-btn active" data-speed="low">Low</button>
+                            <button class="speed-btn" data-speed="medium">Medium</button>
+                            <button class="speed-btn" data-speed="high">High</button>
+                        </div>
+                    </div>
+
+                    <div class="control-card">
+                        <h3>Swing</h3>
+                        <div class="toggle-control">
+                            <label class="switch">
+                                <input type="checkbox" id="swingToggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="control-card">
+                        <h3>Timer</h3>
+                        <input type="number" id="timerInput" min="0" max="24" value="0">
+                        <span>hours</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="history" class="history-panel">
+            <h2>Energy History</h2>
+            <div class="history-cards">
+                <div class="history-card">
+                    <h3>Today's Usage</h3>
+                    <p class="energy-value">8.5 kWh</p>
+                    <div class="savings-indicator positive">-12% vs avg</div>
+                </div>
+                <div class="history-card">
+                    <h3>This Week</h3>
+                    <p class="energy-value">52.3 kWh</p>
+                    <div class="savings-indicator positive">-8% vs last week</div>
+                </div>
+                <div class="history-card">
+                    <h3>This Month</h3>
+                    <p class="energy-value">215.7 kWh</p>
+                    <div class="savings-indicator positive">-15% vs last month</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
