@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const modeToggle = document.getElementById('modeToggle');
     const modeText = document.getElementById('modeText');
+    const modeSwitch = document.querySelector('.mode-switch'); // Define modeSwitch
     const autoMode = document.getElementById('autoMode');
     const manualMode = document.getElementById('manualMode');
     const acSelection = document.getElementById('acSelection');
@@ -26,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
             modeSwitch.style.boxShadow = '0 0 20px rgba(27, 239, 63, 0.5)';
             autoMode.classList.remove('hidden');
             manualMode.classList.add('hidden');
-            
         } else {
             modeText.textContent = 'Manual Mode';
             modeText.style.color = '#e74c3c';
