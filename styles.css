@@ -346,3 +346,18 @@ input:checked + .slider:before {
 .back-button:hover {
     background-color: darken(var(--accent-color), 10%);
 }
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    position: relative;
+    bottom: 100%;
+    width: 100%;
+}
+
+footer p {
+    margin: 75px 0;
+    font-size: 16px;
+}
