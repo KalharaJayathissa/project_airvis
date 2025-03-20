@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set initial mode to "Manual Mode"
     modeText.textContent = 'Manual Mode';
+    modeText.style.color = '#e74c3c';
     manualMode.classList.remove('hidden');
     autoMode.classList.add('hidden');
 
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             modeSwitch.style.boxShadow = '0 0 20px rgba(27, 239, 63, 0.5)';
             autoMode.classList.remove('hidden');
             manualMode.classList.add('hidden');
+            
         } else {
             modeText.textContent = 'Manual Mode';
             modeText.style.color = '#e74c3c';
