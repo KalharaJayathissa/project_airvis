@@ -7,7 +7,22 @@
     --warning-color: #e74c3c;
     --highlight-glow: 0 0 15px rgba(52, 152, 219, 0.5);
 }
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 500px; /* Increased font size */
+    font-weight: bold;
+    color: #3498db;
+    text-transform: none; /* Keep the word as "AirVis" */
+    letter-spacing: 4px;
+    display: inline-block;
+    position: relative;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #c0c0c0, #00f0ff); /* Silver and luminous blue gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 * {
     margin: 0;
     padding: 0;
