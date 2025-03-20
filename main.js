@@ -9,26 +9,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const tempUp = document.getElementById('tempUp');
     const tempDown = document.getElementById('tempDown');
     const speedButtons = document.querySelectorAll('.speed-btn');
+    const backButton = document.getElementById('backButton');
     let currentTemp = 24;
 
-    // Mode Toggle with enhanced animation
+    // Set initial mode to "Manual Mode"
+    modeText.textContent = 'Manual Mode';
+    manualMode.classList.remove('hidden');
+    autoMode.classList.add('hidden');
+
+    // Add event listener to toggle switch
     modeToggle.addEventListener('change', () => {
-        const modeSwitch = document.querySelector('.mode-switch');
-        
         if (modeToggle.checked) {
             modeText.textContent = 'Auto Mode';
-            modeText.style.color = '#3498db';
-            modeSwitch.style.boxShadow = '0 0 20px rgba(52, 152, 219, 0.5)';
             autoMode.classList.remove('hidden');
             manualMode.classList.add('hidden');
         } else {
             modeText.textContent = 'Manual Mode';
-            modeText.style.color = '#e74c3c';
-            modeSwitch.style.boxShadow = '0 0 20px rgba(231, 76, 60, 0.5)';
-            autoMode.classList.add('hidden');
             manualMode.classList.remove('hidden');
-            acSelection.classList.remove('hidden');
-            controlPanel.classList.add('hidden');
+            autoMode.classList.add('hidden');
         }
     });
 
@@ -38,6 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
             acSelection.classList.add('hidden');
             controlPanel.classList.remove('hidden');
         });
+    });
+
+    // Add event listener to back button
+    backButton.addEventListener('click', () => {
+        controlPanel.classList.add('hidden');
+        acSelection.classList.remove('hidden');
     });
 
     // Temperature Control
@@ -90,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Update history data every 5 minutes
     updateHistoryData();
     setInterval(updateHistoryData, 300000);
 });
