@@ -1,0 +1,328 @@
+:root {
+    --primary-color: #1a1f2c;
+    --secondary-color: #2a2f3c;
+    --accent-color: #3498db;
+    --text-color: #ffffff;
+    --success-color: #2ecc71;
+    --warning-color: #e74c3c;
+    --highlight-glow: 0 0 15px rgba(52, 152, 219, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.mode-switch {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 20px;
+    background: linear-gradient(145deg, var(--secondary-color), var(--primary-color));
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.mode-switch:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--highlight-glow);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 38px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(145deg, #1a1f2c, #2a2f3c);
+    transition: .4s;
+    border-radius: 34px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 30px;
+    left: 4px;
+    bottom: 4px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+    background: linear-gradient(145deg, #2980b9, #3498db);
+}
+
+input:checked + .slider:before {
+    transform: translateX(32px);
+}
+
+#modeText {
+    font-size: 18px;
+    font-weight: 600;
+    min-width: 120px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+}
+
+.mode-container {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.status-card {
+    text-align: center;
+    padding: 40px;
+}
+
+.status-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    background-color: var(--success-color);
+    position: relative;
+}
+
+.status-icon.online::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--success-color);
+    border-radius: 50%;
+    bottom: -5px;
+    right: -5px;
+}
+
+.ac-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.ac-card {
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.ac-card:hover {
+    transform: translateY(-5px);
+    background-color: var(--accent-color);
+}
+
+.control-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.control-card {
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.temp-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.temp-btn {
+    background-color: var(--accent-color);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.speed-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.speed-btn {
+    background-color: var(--secondary-color);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.speed-btn.active {
+    background-color: var(--accent-color);
+}
+
+.history-panel {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.history-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.history-card {
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.energy-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin: 10px 0;
+}
+
+.savings-indicator {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.savings-indicator.positive {
+    background-color: var(--success-color);
+}
+
+.savings-indicator.negative {
+    background-color: var(--warning-color);
+}
+
+.hidden {
+    display: none;
+}
+.graph-container {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.graph-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.airflow-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.line {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 2;
+    stroke-dasharray: 5, 5; /* Make the lines dotted */
+    stroke-dashoffset: 1000;
+    opacity: 0.5; /* Make the lines semi-transparent */
+    animation: draw 5s infinite linear;
+}
+
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.back-button {
+    background-color: var(--accent-color);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: darken(var(--accent-color), 10%);
+}
