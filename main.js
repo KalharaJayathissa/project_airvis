@@ -21,12 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
     modeToggle.addEventListener('change', () => {
         if (modeToggle.checked) {
             modeText.textContent = 'Auto Mode';
+            modeText.style.color = '#00ff64d9';
+            modeSwitch.style.boxShadow = '0 0 20px rgba(27, 239, 63, 0.5)';
             autoMode.classList.remove('hidden');
             manualMode.classList.add('hidden');
         } else {
             modeText.textContent = 'Manual Mode';
-            manualMode.classList.remove('hidden');
+            modeText.style.color = '#e74c3c';
+            modeSwitch.style.boxShadow = '0 0 20px rgba(231, 76, 60, 0.5)';
             autoMode.classList.add('hidden');
+            manualMode.classList.remove('hidden');
+            acSelection.classList.remove('hidden');
+            controlPanel.classList.add('hidden');
         }
     });
 
