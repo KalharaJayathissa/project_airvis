@@ -7,10 +7,10 @@
     --warning-color: #e74c3c;
     --highlight-glow: 0 0 15px rgba(52, 152, 219, 0.5);
 }
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@700&display=swap');
 
 .logo {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Tektur', sans-serif;
     font-size: 10rem; /* Adjusted font size */
     font-weight: bold;
     color: #3498db;
@@ -30,6 +30,7 @@
 }
 
 body {
+    overflow: hidden;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--primary-color);
     color: var(--text-color);
@@ -64,7 +65,7 @@ nav {
     padding: 10px 20px;
     background: linear-gradient(145deg, var(--secondary-color), var(--primary-color));
     border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(45, 57, 188, 0.2);
+    box-shadow: 0 6px 26px rgba(63, 71, 165, 0.2);
     position: relative;
     transition: all 0.3s ease;
 }
@@ -256,14 +257,14 @@ input:checked + .slider:before {
 
 .history-card {
     background-color: var(--primary-color);
-    padding: 20px;
+    padding:60px;
     border-radius: 10px;
     text-align: center;
     height: 255px;
 }
 
 .energy-value {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     color: var(--accent-color);
     margin: 10px 0;
