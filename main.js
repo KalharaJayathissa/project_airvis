@@ -105,3 +105,16 @@ document.addEventListener('DOMContentLoaded', () => {
     updateHistoryData();
     setInterval(updateHistoryData, 300000);
 });
+
+VANTA.NET({
+    el: "#vanta-bg",
+    mouseControls: true,
+    touchControls: true,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    color: 0x319f00,
+    backgroundColor: 0x0f0f0f
+  });
+  

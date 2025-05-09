@@ -1,17 +1,17 @@
 :root {
-    --primary-color: #1a1f2c;
-    --secondary-color: #2a2f3c;
-    --accent-color: #3498db;
+    --primary-color: #080e1b;
+    --secondary-color: #163539;
+    --accent-color: #c66872;
     --text-color: #ffffff;
-    --success-color: #2ecc71;
+    --success-color: #5eea51;
     --warning-color: #e74c3c;
     --highlight-glow: 0 0 15px rgba(52, 152, 219, 0.5);
 }
-@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@700&display=swap');
+
 
 .logo {
     font-family: 'Tektur', sans-serif;
-    font-size: 10rem; /* Adjusted font size */
+    font-size: 100rem; /* Adjusted font size */
     font-weight: bold;
     color: #3498db;
     text-transform: none; /* Keep the word as "AirVis" */
@@ -19,15 +19,11 @@
     display: inline-block;
     position: relative;
     padding: 10px 20px;
-    background: linear-gradient(45deg, #c0c0c0, #00f0ff); /* Silver and luminous blue gradient */
+    background: linear-gradient(70deg, #c0c0c0, #00f0ff); /* Silver and luminous blue gradient */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 body {
     /* overflow: hidden; */
@@ -38,9 +34,13 @@ body {
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    top:0;
+    left:0;
+    
+    
+    z-index: -1;
+    
+  
 }
 
 nav {
@@ -56,6 +56,7 @@ nav {
     font-size: 24px;
     font-weight: bold;
     color: var(--accent-color);
+    top : px;
 }
 
 .mode-switch {
@@ -66,13 +67,15 @@ nav {
     background: linear-gradient(145deg, var(--secondary-color), var(--primary-color));
     border-radius: 20px;
     box-shadow: 0 6px 26px rgba(63, 71, 165, 0.2);
-    position: relative;
+    position: fixed;
     transition: all 0.3s ease;
+    top:50px;
+    right:1%;
 }
 
 .mode-switch:hover {
     transform: translateY(-2px);
-    box-shadow:  0 0 25px rgb(255, 255, 255);
+    box-shadow:  0 0 250px rgb(255, 255, 255);
 }
 
 .switch {
@@ -135,8 +138,8 @@ input:checked + .slider:before {
 }
 
 .mode-container {
-    background-color: var(--secondary-color);
-    border-radius: 10px;
+    background-color: rgba(19, 9, 85, 0.24); /* semi-transparent version of #163539 */
+    border-radius: 39px;
     padding: 20px;
     margin-bottom: 30px;
 }
@@ -195,7 +198,7 @@ input:checked + .slider:before {
 }
 
 .control-card {
-    background-color: var(--primary-color);
+    background-color: rgba(var(--primary-color),0.8);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -241,10 +244,11 @@ input:checked + .slider:before {
 }
 
 .history-panel {
-    background-color: var(--secondary-color);
-    border-radius: 10px;
+    background-color: rgba(19, 9, 85, 0.24); /* semi-transparent version of #163539 */
+
+    border-radius: 39px;
     padding: 20px;
-    height: 350px; /* Decreased height */
+    height: 300px; /* Decreased height */
 }
 
 .history-cards {
@@ -252,15 +256,14 @@ input:checked + .slider:before {
     grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
     gap: 20px;
     margin-top: 20px;
-    height: 500px; /* Decreased height */
+    height: 550px; /* Decreased height */
 }
 
 .history-card {
     background-color: var(--primary-color);
-    padding:60px;
-    border-radius: 10px;
+   
     text-align: center;
-    height: 255px;
+    height: 175px;
 }
 
 .energy-value {
@@ -302,25 +305,9 @@ input:checked + .slider:before {
     color: var(--text-color);
 }
 
-.airflow-animation {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-}
 
-.line {
-    fill: none;
-    stroke: var(--accent-color);
-    stroke-width: 2;
-    stroke-dasharray: 5, 5; /* Make the lines dotted */
-    stroke-dashoffset: 1000;
-    opacity: 0.5; /* Make the lines semi-transparent */
-    animation: draw 5s infinite linear;
-}
+
+
 
 @keyframes draw {
     0% {
@@ -349,15 +336,23 @@ input:checked + .slider:before {
 
 footer {
     text-align: center;
-    padding: 10px;
-    background-color: var(--primary-color);
     color: var(--text-color);
-    position: relative;
-    bottom: 100%;
+    background: transparent;
     width: 100%;
-}
+    padding: 20px 0;
+    margin-top: auto; /* pushes footer to bottom in flex layout */
+  }
+  
 
-footer p {
-    margin: 75px 0;
-    font-size: 16px;
-}
+
+/* vanta background */
+/* Vanta background: fixed and behind everything */
+#vanta-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    z-index: -1; /* behind everything */
+    pointer-events: none; /* allows clicks through it */
+  }
