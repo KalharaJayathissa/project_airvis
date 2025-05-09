@@ -148,7 +148,7 @@ input:checked + .slider:before {
     z-index: 1; /* Ensure it appears above the background */
 
     overflow: hidden; /* Prevents overflow of child elements */
-    height: 300px;;
+    
 }
 
 .blur{
