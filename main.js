@@ -13,6 +13,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const backButton = document.getElementById('backButton');
     let currentTemp = 24;
 
+    function applyFreshFadeIn(element) {
+        const uniqueClass = 'fade-in-' + Date.now();
+    
+        // Create a new <style> block with unique animation
+        const style = document.createElement('style');
+        style.textContent = `
+            .${uniqueClass} {
+                animation: ${uniqueClass}-anim 0.6s ease forwards;
+            }
+            @keyframes ${uniqueClass}-anim {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+    
+        // Remove old fade-in classes
+        element.classList.forEach(cls => {
+            if (cls.startsWith('fade-in-')) element.classList.remove(cls);
+        });
+    
+        // Add the newly generated class
+        element.classList.add(uniqueClass);
+    }
+    
+
     // Set initial mode to "Manual Mode"
     modeText.textContent = 'Manual Mode';
     modeText.style.color = '#e74c3c';
@@ -25,17 +51,22 @@ document.addEventListener('DOMContentLoaded', () => {
             modeText.textContent = 'Auto Mode';
             modeText.style.color = '#00ff64d9';
             modeSwitch.style.boxShadow = '0 0 20px rgba(27, 239, 63, 0.5)';
+        
             autoMode.classList.remove('hidden');
             manualMode.classList.add('hidden');
+        
+            applyFreshFadeIn(autoMode);
         } else {
             modeText.textContent = 'Manual Mode';
             modeText.style.color = '#e74c3c';
             modeSwitch.style.boxShadow = '0 0 20px rgba(231, 76, 60, 0.5)';
-            autoMode.classList.add('hidden');
+        
             manualMode.classList.remove('hidden');
-            acSelection.classList.remove('hidden');
-            controlPanel.classList.add('hidden');
+            autoMode.classList.add('hidden');
+        
+            applyFreshFadeIn(manualMode);
         }
+        
     });
 
     // AC Selection
@@ -43,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', () => {
             acSelection.classList.add('hidden');
             controlPanel.classList.remove('hidden');
+            applyFreshFadeIn(controlPanel);
         });
     });
 
@@ -50,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     backButton.addEventListener('click', () => {
         controlPanel.classList.add('hidden');
         acSelection.classList.remove('hidden');
+        applyFreshFadeIn(acSelection);
     });
 
     // Temperature Control
