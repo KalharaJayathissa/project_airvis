@@ -1,3 +1,4 @@
+
 function showScreen(screenId) {
     document.querySelectorAll('.screen').forEach(screen => {
         screen.classList.add('hidden');
@@ -18,3 +19,12 @@ function applySettings() {
     const fanSpeed = document.getElementById("fanSpeed").value;
     alert(`Settings applied: Temperature ${temperature}°C, Fan Speed ${fanSpeed}`);
 }
+document.addEventListener("DOMContentLoaded", () => {
+
+    const modeToggle = document.getElementById('modeToggle');
+    if (modeToggle) {
+        modeToggle.addEventListener('change', () => {
+            activateAirVis();
+        });
+    }
+});
